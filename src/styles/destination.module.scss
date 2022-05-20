@@ -1,0 +1,58 @@
+@import '../utilities/variables';
+
+.image img {
+    max-width: 90%;
+}
+
+.subMenu {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 0.5em;
+    font-size: calc(2vw + 1rem);
+    font-weight: bolder;
+}
+
+.name {
+    font-size: $bigFont;
+    font-weight: bolder;
+    padding-top: 0.5em;
+}
+
+.description {
+    font-size: $smallFont;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.5);
+    padding: 1.5em 0 2em 0;
+    max-width: 45ch;
+    margin: auto;
+    line-height: 1.6em;
+    font-weight: bolder;
+}
+
+@media (min-width: 640px) {
+    .subMenu {
+        font-size: calc(1.3vw + 1.2rem);
+    }
+
+    .name {
+        font-size: calc(7vw + 8rem);
+    }
+
+    .description {
+        max-width: 43ch;
+    }
+}
+
+@media (min-width: 950px) {
+    .subMenu {
+        font-size: calc(1vw + 1rem);
+    }
+
+    .name {
+        font-size: calc(6vw + 7rem);
+    }
+
+    .description {
+        font-size: calc(1vw + 1rem);
+        max-width: 33ch;
+    }
+}

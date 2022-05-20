@@ -1,0 +1,120 @@
+@import '../utilities/variables';
+
+.header {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.menu {
+    padding: 4em;
+    background-color: rgba(8, 11, 26, 0.9);
+    position: fixed;
+    top: 0;
+    left: -80%;
+    width: 80%;
+    height: 100%;
+    -webkit-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+}
+
+.menu .closeIcon {
+    place-self: end;
+}
+
+.menu ul {
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.menu ul li {
+    padding: 5em 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    position: relative;
+    color: white;
+    font-size: $smallFont;
+    font-weight: bold;
+    padding: 0.7em;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        border-bottom: 1px solid;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: left top;
+        transform-origin: left top;
+        -webkit-transition: -webkit-transform 0.5s ease-in-out;
+        transition: -webkit-transform 0.5s ease-in-out;
+        transition: transform 0.5s ease-in-out;
+        transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+    }
+
+    &:hover::after {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        -webkit-transform-origin: right top;
+        transform-origin: right top;
+    }
+}
+
+@media (min-width: 640px) {
+    .logo img {
+        width: 7rem;
+    }
+    .menuIcon {
+        display: none;
+    }
+    .menu {
+        padding: 0 2em;
+        width: auto;
+        height: auto;
+        position: absolute;
+        right: 0;
+        left: auto !important;
+        background: rgba(255, 255, 255, 0.2);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+    .menu ul {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
+    .menu .closeIcon {
+        display: none;
+    }
+}
+@media (min-width: 950px) {
+    .menu {
+        width: 60vw;
+        top: 3em;
+    }
+    .menu ul {
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+    }
+    .menu ul li {
+        padding: 3em 0;
+    }
+}

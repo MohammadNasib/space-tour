@@ -1,0 +1,58 @@
+.container {
+    background: url('../assets/crew/background-crew-mobile.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.subMenu {
+    justify-content: center;
+    font-size: calc(1.5vw + 1rem);
+}
+
+.name {
+    font-size: calc(3vw + 3rem);
+}
+
+.description {
+    border: none;
+}
+
+.dots {
+    .dot {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 50%;
+        display: inline-block;
+        background-color: hsla(0, 3.2%, 42.9%, 0.55);
+        margin: 0.5em 1em;
+        cursor: pointer;
+        border: 1px solid hsla(0, 3.2%, 42.9%, 0.55);
+    }
+
+    .dot:hover {
+        background-color: white;
+        color: black;
+    }
+}
+
+@media (min-width: 640px) {
+    .container {
+        background: url('../assets/crew/background-crew-tablet.jpg') no-repeat center center;
+        background-size: cover;
+    }
+}
+@media (min-width: 950px) {
+    .content {
+        display: flex;
+    }
+    .image {
+        order: 2;
+    }
+
+    .info {
+        text-align: left;
+    }
+
+    .subMenu {
+        justify-content: start;
+    }
+}

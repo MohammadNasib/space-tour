@@ -1,0 +1,21 @@
+@import '../utilities/variables';
+
+.title {
+    font-size: $mediumFont;
+    font-weight: bold;
+    margin-top: 4em;
+    place-self: center;
+}
+
+@media (min-width: 640px) {
+    .title {
+        font-size: $mediumFont;
+        place-self: start;
+        margin: 4em 0 0 1em;
+    }
+}
+@media (min-width: 950px) {
+    .title {
+        font-size: calc(1.5vw + 1.4rem);
+    }
+}

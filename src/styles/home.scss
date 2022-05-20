@@ -1,0 +1,49 @@
+@import '../utilities/variables';
+
+
+
+.top {
+    font-size: $mediumFont;
+}
+.middle {
+    margin: 0.3em 0;
+    font-size: $bigFont;
+    font-weight: bolder;
+}
+.bottom {
+    font-size: $smallFont;
+    max-width: 35ch;
+    line-height: 1.5em;
+    margin: auto;
+}
+
+button {
+    width: 6.5em;
+    height: 6.5em;
+    border-radius: 50%;
+    font-size: calc(1rem + 3vw);
+    border: 2px solid #103150c4;
+}
+
+button:hover {
+    color: #202578;
+}
+
+// medium screens
+// @media (min-width: 640px) 
+
+// large screen
+@media (min-width: 950px) {
+
+    .top {
+        font-size: calc(2vw + 1.2rem);
+    }
+
+    .bottom {
+        font-size: calc(1rem + 1vw);
+    }
+
+    button {
+        font-size: calc(2.7rem + 1vw);
+    }
+}
