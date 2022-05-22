@@ -1,35 +1,26 @@
 import React, { useState } from 'react';
-import Radium from 'radium';
-
 import json from '../utilities/data.json';
-// import '../styles/global.scss';
+import Footer from './Footer';
+import SubMenu from './SubMenu';
 
 export default function Content({ dataName, classes }) {
     const dataArray = json[dataName];
-    const [index, setInex] = useState(0);
-    
+    const [index, setIndex] = useState(0);
 
     return (
         <>
             <div className={'content'}>
                 <div className={classes.image}>
-                    <img alt='MOON' src={dataArray[index].images.webp} />
+                    <img
+                        loading='lazy'
+                        alt={dataArray[index].name}
+                        src={dataArray?.[index].images.webp}
+                    />
                 </div>
 
                 <div className={`info txtAlign`}>
-                    <div className={` ${classes.subMenu} leftPadding }`}>
-                        <span className='pointer' onClick={() => setInex(0)}>
-                            MOON
-                        </span>
-                        <span className='pointer' onClick={() => setInex(1)}>
-                            MARS
-                        </span>
-                        <span className='pointer' onClick={() => setInex(2)}>
-                            EUROPA
-                        </span>
-                        <span className='pointer' onClick={() => setInex(3)}>
-                            TITAN
-                        </span>
+                    <div className={` ${classes.subMenu}  leftPadding `}>
+                        <SubMenu dataArray={dataArray} setIndex={setIndex} dataName={dataName} classes={classes} />
                     </div>
 
                     <div className={classes.name}>{dataArray[index].name}</div>
@@ -37,6 +28,14 @@ export default function Content({ dataName, classes }) {
                     <div className={` ${classes.description} leftPadding `}>
                         {dataArray[index].description}
                     </div>
+
+                    <Footer
+                        classes={classes}
+                        pageName={dataName}
+                        distance={dataArray[index].distance}
+                        travel={dataArray[index].travel}
+                        role={dataArray[index].role}
+                    />
                 </div>
             </div>
         </>

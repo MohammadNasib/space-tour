@@ -8,29 +8,50 @@
     display: grid;
     grid-template-columns: auto auto auto auto;
     grid-gap: 0.5em;
-    font-size: calc(2vw + 1rem);
+    font-size: calc(2.3vw + 1.3rem);
     font-weight: bolder;
+    margin-bottom: 2em;
+
+    span {
+        padding-bottom: 0.4em;
+    }
+}
+
+.active {
+    border-bottom: 1px solid white;
 }
 
 .name {
     font-size: $bigFont;
     font-weight: bolder;
-    padding-top: 0.5em;
 }
 
 .description {
     font-size: $smallFont;
     border-bottom: 1px solid hsla(0, 0%, 100%, 0.5);
-    padding: 1.5em 0 2em 0;
+    padding-bottom: 2em;
     max-width: 45ch;
     margin: auto;
     line-height: 1.6em;
-    font-weight: bolder;
+}
+
+.footer {
+    .distance,
+    .travelTime {
+        h1 {
+            font-size: calc(3vw + 2rem);
+            margin-top: 0.3em;
+        }
+
+        h3 {
+            font-size: calc(1vw + 1rem);
+        }
+    }
 }
 
 @media (min-width: 640px) {
     .subMenu {
-        font-size: calc(1.3vw + 1.2rem);
+        font-size: calc(1.5vw + 1.5rem);
     }
 
     .name {
@@ -44,7 +65,7 @@
 
 @media (min-width: 950px) {
     .subMenu {
-        font-size: calc(1vw + 1rem);
+        font-size: calc(1.3vw + 1.3rem);
     }
 
     .name {
@@ -54,5 +75,18 @@
     .description {
         font-size: calc(1vw + 1rem);
         max-width: 33ch;
+    }
+    
+    .footer {
+        .distance,
+        .travelTime {
+            h1 {
+                font-size: calc(1vw + 1.5rem);
+            }
+
+            h3 {
+                font-size: calc(0.5vw + 0.7rem);
+            }
+        }
     }
 }

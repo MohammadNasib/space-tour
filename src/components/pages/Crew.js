@@ -1,15 +1,14 @@
 import React from 'react';
 import Content from '../Content';
 import Title from '../Title';
-// import '../../styles/crew.scss';
+import classes from '../../styles/crew.module.scss';
 
 export default function Crew() {
     return (
         <>
             <Title title='MEET YOUR CREW' />
-            <div className='content'>
-                <Content dataName={'crew'} />
-            </div>
+
+            <Content dataName={'crew'} classes={classes} />
         </>
     );
 }
