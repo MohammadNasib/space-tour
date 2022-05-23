@@ -11,25 +11,26 @@ import Radium from 'radium';
 
 function SpaceTourism() {
     const pathName = window.location.pathname;
-    const [name, setName] = useState(pathName === '/' ? 'home' : pathName.slice(1));
+    // slice removes first character of a string
+    const [bgName, setBgName] = useState(pathName === '/' ? 'home' : pathName.slice(1));
 
     const styles = {
-        background: ` url('../assets/${name}/background-${name}-mobile.jpg') 
+        background: ` url('../assets/${bgName}/background-${bgName}-mobile.jpg') 
         center center / 100% 100% no-repeat `,
 
         '@media (min-width: 640px)': {
-            background: ` url('../assets/${name}/background-${name}-tablet.jpg') center center / 100% 100% no-repeat `,
+            background: ` url('../assets/${bgName}/background-${bgName}-tablet.jpg') center center / 100% 100% no-repeat `,
         },
 
         '@media (min-width:950px)': {
-            background: ` url('../assets/${name}/background-${name}-desktop.jpg') center center / 100% 100% no-repeat `,
+            background: ` url('../assets/${bgName}/background-${bgName}-desktop.jpg') center center / 100% 100% no-repeat `,
         },
     };
 
     return (
         <div className='container' style={styles}>
             <Router>
-                <Navbar setName={setName} />
+                <Navbar setBgName={setBgName} />
                 <Routes>
                     <Route path='/' element={<Home />} />
 

@@ -43,9 +43,14 @@ html {
     margin-bottom: 5em;
 }
 
-.info {
+.globalInfo {
     display: grid;
     grid-gap: 2.5em;
+}
+
+.details {
+    display: grid;
+    grid-gap: 1em;
 }
 
 .globalFooter {
@@ -76,11 +81,11 @@ html {
     }
 
     .leftPadding {
-        padding-left: 0.5em !important;
+        padding-left: 0.4em !important;
     }
 
     .container {
-        padding: 3em 5em;
+        padding: 3em 0 5em 3em;
     }
 
     .content {

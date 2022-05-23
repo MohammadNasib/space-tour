@@ -18,6 +18,7 @@ export default function Footer({ classes, pageName, distance, travel, role }) {
             )}
 
             {pageName === 'crew' && <> {role} </>}
+            {pageName === 'technology' && <>THE TERMINOLOGY</>}
         </div>
     );
 }

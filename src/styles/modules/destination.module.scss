@@ -1,4 +1,4 @@
-@import '../utilities/variables';
+@import '../../utilities/variables';
 
 .image img {
     max-width: 90%;
@@ -10,7 +10,7 @@
     grid-gap: 0.5em;
     font-size: calc(2.3vw + 1.3rem);
     font-weight: bolder;
-    margin-bottom: 2em;
+    margin-bottom: .5em;
 
     span {
         padding-bottom: 0.4em;

@@ -2,18 +2,19 @@ import React, { useRef } from 'react';
 import '../styles/navbar.scss';
 import { NavLink } from 'react-router-dom';
 
-export default function Navbar({ setName }) {
+export default function Navbar({ setBgName }) {
     const menuRef = useRef();
 
     function openMenu() {
         menuRef.current.style.left = '0';
     }
+
     function closeMenu() {
         menuRef.current.style.left = '-80%';
     }
 
-    function updateName(name) {
-        setName((preVal) => (preVal = name));
+    function updateBgName(name) {
+        setBgName((preVal) => (preVal = name));
     }
 
 
@@ -21,13 +22,15 @@ export default function Navbar({ setName }) {
         <>
             <div className='header'>
                 <span className='logo pointer'>
-                    <img src='assets/shared/logo.svg' alt='LOGO' />
+                    <img src='assets/shared/logo.svg' alt='LOGO'  />
                 </span>
+                
                 <span className='menuIcon pointer'>
                     <img
                         src='assets/shared/icon-hamburger.svg'
                         alt='HAMBURGER'
                         onClick={openMenu}
+                    
                     />
                 </span>
 
@@ -42,25 +45,25 @@ export default function Navbar({ setName }) {
                         </div>
 
                         <li>
-                            <NavLink to='/' onClick={() => updateName('home')}>
+                            <NavLink to='/' onClick={() => updateBgName('home')}>
                                 Home
                             </NavLink>
                         </li>
 
                         <li>
-                            <NavLink to='destination' onClick={() => updateName('destination')}>
+                            <NavLink to='destination' onClick={() => updateBgName('destination')}>
                                 Destination
                             </NavLink>
                         </li>
 
                         <li>
-                            <NavLink to='crew' onClick={() => updateName('crew')}>
+                            <NavLink to='crew' onClick={() => updateBgName('crew')}>
                                 Crew
                             </NavLink>
                         </li>
 
                         <li>
-                            <NavLink to='technology' onClick={() => updateName('technology')}>
+                            <NavLink to='technology' onClick={() => updateBgName('technology')}>
                                 Technology
                             </NavLink>
                         </li>

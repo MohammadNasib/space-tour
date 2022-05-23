@@ -7,7 +7,6 @@ export default function SubMenu({ dataArray, setIndex, dataName, classes }) {
     function newArray() {
         const tempArray = new Array(dataArray.length - 1).fill(false);
         tempArray.unshift(true); // UNSHIFT adds value in the start
-        console.log(tempArray);
         return tempArray;
     }
 
@@ -21,7 +20,7 @@ export default function SubMenu({ dataArray, setIndex, dataName, classes }) {
         <>
             {dataArray.map((element, index) => (
                 <span
-                    className={` pointer ${activeArray[index] && classes.active } `}
+                    className={` pointer ${activeArray[index] && classes.active} `}
                     key={index}
                     onClick={() => {
                         setIndex(index);
