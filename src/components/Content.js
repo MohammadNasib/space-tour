@@ -1,3 +1,4 @@
+import { AnimatePresence, motion, AnimateSharedLayout } from 'framer-motion';
 import React, { useState, useEffect } from 'react';
 import json from '../utilities/data.json';
 import Footer from './Footer';
@@ -17,48 +18,75 @@ export default function Content({ dataName, classes }) {
 
     function cngImgType() {
         let screenSize = window.innerWidth;
-        console.log('called');
         screenSize >= '950' ? setImgType('portrait') : setImgType('landscape');
     }
 
     return (
-        <>
-            <div className={'content'}>
-                <div className={classes.image}>
-                    <img
-                        loading='lazy'
-                        alt={dataArray[index].name}
-                        src={dataArray?.[index].images.webp ?? dataArray?.[index].images[imgType]}
+        <motion.div
+            className={'content'}
+            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.15 }}
+        >
+            <div className={classes.image}>
+                {/* <AnimatePresence exitBeforeEnter> */}
+                <motion.img
+                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 50 }}
+                    exit={{ opacity: 0, y: -50 }}
+                    transition={{ duration: 0.15 }}
+                    loading='lazy'
+                    alt={dataArray[index].name}
+                    src={dataArray?.[index].images.webp ?? dataArray?.[index].images[imgType]}
+                />
+                {/* </AnimatePresence> */}
+            </div>
+
+            <div className={`${classes.info} globalInfo txtAlign`}>
+                <div className={` ${classes.subMenu}  leftPadding `}>
+                    <SubMenu
+                        dataArray={dataArray}
+                        setIndex={setIndex}
+                        dataName={dataName}
+                        classes={classes}
                     />
                 </div>
 
-                <div className={`${classes.info} globalInfo txtAlign`}>
-                    <div className={` ${classes.subMenu}  leftPadding `}>
-                        <SubMenu
-                            dataArray={dataArray}
-                            setIndex={setIndex}
-                            dataName={dataName}
-                            classes={classes}
-                        />
-                    </div>
+                <div className='details'>
+                    {/* <AnimatePresence exitBeforeEnter> */}
+                    <motion.div
+                        animate={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.15 }}
+                        className={classes.name}
+                    >
+                        {dataArray[index].name}
+                    </motion.div>
+                    {/* </AnimatePresence> */}
 
-                    <div className='details'>
-                        <div className={classes.name}>{dataArray[index].name}</div>
+                    {/* <AnimatePresence exitBeforeEnter> */}
+                    <motion.div
+                        animate={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.15 }}
+                        className={` ${classes.description} leftPadding `}
+                    >
+                        {dataArray[index].description}
+                    </motion.div>
+                    {/* </AnimatePresence> */}
 
-                        <div className={` ${classes.description} leftPadding `}>
-                            {dataArray[index].description}
-                        </div>
-
-                        <Footer
-                            classes={classes}
-                            pageName={dataName}
-                            distance={dataArray[index].distance}
-                            travel={dataArray[index].travel}
-                            role={dataArray[index].role}
-                        />
-                    </div>
+                    <Footer
+                        classes={classes}
+                        pageName={dataName}
+                        distance={dataArray[index].distance}
+                        travel={dataArray[index].travel}
+                        role={dataArray[index].role}
+                    />
                 </div>
             </div>
-        </>
+        </motion.div>
     );
 }

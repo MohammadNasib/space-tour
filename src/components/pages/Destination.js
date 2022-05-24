@@ -3,8 +3,10 @@ import Title from '../Title';
 import Content from '../Content';
 import classes from '../../styles/modules/destination.module.scss';
 
+
 export default function Destination() {
     return (
+        
         <>
             <Title title='PICK YOUR DESTINATION' />
 

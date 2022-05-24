@@ -1,8 +1,9 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 
 export default function Footer({ classes, pageName, distance, travel, role }) {
     return (
-        <div className={`${classes.footer} globalFooter `}>
+        <motion.div layout className={`${classes.footer} globalFooter `}>
             {pageName === 'destinations' && (
                 <>
                     <div className={`${classes.distance} leftPadding`}>
@@ -19,6 +20,6 @@ export default function Footer({ classes, pageName, distance, travel, role }) {
 
             {pageName === 'crew' && <> {role} </>}
             {pageName === 'technology' && <>THE TERMINOLOGY</>}
-        </div>
+        </motion.div>
     );
 }

@@ -1,10 +1,15 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import '../../styles/home.scss';
 
 export default function Home() {
-
     return (
-        <div className='content'>
+        <motion.div
+            className='content'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 0.5 } }}
+            exit={{ opacity: 0 }}
+        >
             <div className='context txtAlign'>
                 <p className='top leftPadding'>So, you want to travel to</p>
                 <p className='middle'>SPACE</p>
@@ -14,10 +19,10 @@ export default function Home() {
                     because we'll give you a truly out of this world experience!
                 </p>
             </div>
-            
+
             <div className='button'>
                 <button className='pointer'>EXPLORE</button>
             </div>
-        </div>
+        </motion.div>
     );
 }

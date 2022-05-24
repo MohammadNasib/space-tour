@@ -1,12 +1,7 @@
-import { StyleRoot } from 'radium';
 import SpaceTourism from './SpaceTourism';
 
 function App() {
-    return (
-        <StyleRoot>
-            <SpaceTourism />
-        </StyleRoot>
-    );
+    return <SpaceTourism />;
 }
 
 export default App;

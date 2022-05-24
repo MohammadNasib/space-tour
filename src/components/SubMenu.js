@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 
 export default function SubMenu({ dataArray, setIndex, dataName, classes }) {
@@ -19,7 +20,8 @@ export default function SubMenu({ dataArray, setIndex, dataName, classes }) {
     return (
         <>
             {dataArray.map((element, index) => (
-                <span
+                <motion.span
+                    layout
                     className={` pointer ${activeArray[index] && classes.active} `}
                     key={index}
                     onClick={() => {
@@ -30,7 +32,7 @@ export default function SubMenu({ dataArray, setIndex, dataName, classes }) {
                     {dataName === 'destinations' && element.name}
                     {dataName === 'crew' && null}
                     {dataName === 'technology' && index + 1}
-                </span>
+                </motion.span>
             ))}
         </>
     );
