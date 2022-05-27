@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import '../styles/global.scss';
 import Home from './pages/Home';
@@ -37,28 +37,20 @@ export default function SpaceTourism() {
     };
 
     return (
-        <AnimatePresence>
-            <motion.div
-                className='container'
-                style={styles}
-                animate={{ opacity: 1, y: 0 }}
-                initial={{ opacity: 0, y: 20 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.15 }}
-            >
-                <Router>
-                    <Navbar setBgName={setBgName} />
-                    <Routes>
-                        <Route exact path='/' element={<Home />} />
+        <motion.div
+            className='container'
+            style={styles}
+        >
+            <Navbar setBgName={setBgName} />
+            <Routes>
+                <Route exact path='/' element={<Home />} />
 
-                        <Route path='/destination' element={<Destination />} />
+                <Route path='/destination' element={<Destination />} />
 
-                        <Route path='/crew' element={<Crew />} />
+                <Route path='/crew' element={<Crew />} />
 
-                        <Route path='/technology' element={<Technology />} />
-                    </Routes>
-                </Router>
-            </motion.div>
-        </AnimatePresence>
+                <Route path='/technology' element={<Technology />} />
+            </Routes>
+        </motion.div>
     );
 }

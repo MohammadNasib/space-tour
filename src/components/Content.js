@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, AnimateSharedLayout } from 'framer-motion';
+import { motion } from 'framer-motion';
 import React, { useState, useEffect } from 'react';
 import json from '../utilities/data.json';
 import Footer from './Footer';
@@ -8,6 +8,10 @@ export default function Content({ dataName, classes }) {
     const dataArray = json[dataName];
     const [index, setIndex] = useState(0);
     const [imgType, setImgType] = useState('');
+    const contentVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    };
 
     useEffect(() => {
         let screenSize = window.innerWidth;
@@ -24,23 +28,17 @@ export default function Content({ dataName, classes }) {
     return (
         <motion.div
             className={'content'}
-            animate={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 20 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.15 }}
+            variants={contentVariants}
+            animate='visible'
+            initial='hidden'
+            // exit={{ opacity: 0, y: -20 }}
         >
             <div className={classes.image}>
-                {/* <AnimatePresence exitBeforeEnter> */}
                 <motion.img
-                    animate={{ opacity: 1, y: 0 }}
-                    initial={{ opacity: 0, y: 50 }}
-                    exit={{ opacity: 0, y: -50 }}
-                    transition={{ duration: 0.15 }}
                     loading='lazy'
                     alt={dataArray[index].name}
                     src={dataArray?.[index].images.webp ?? dataArray?.[index].images[imgType]}
                 />
-                {/* </AnimatePresence> */}
             </div>
 
             <div className={`${classes.info} globalInfo txtAlign`}>
@@ -54,29 +52,11 @@ export default function Content({ dataName, classes }) {
                 </div>
 
                 <div className='details'>
-                    {/* <AnimatePresence exitBeforeEnter> */}
-                    <motion.div
-                        animate={{ opacity: 1, y: 0 }}
-                        initial={{ opacity: 0, y: 20 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.15 }}
-                        className={classes.name}
-                    >
-                        {dataArray[index].name}
-                    </motion.div>
-                    {/* </AnimatePresence> */}
+                    <motion.div className={classes.name}>{dataArray[index].name}</motion.div>
 
-                    {/* <AnimatePresence exitBeforeEnter> */}
-                    <motion.div
-                        animate={{ opacity: 1, y: 0 }}
-                        initial={{ opacity: 0, y: 20 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.15 }}
-                        className={` ${classes.description} leftPadding `}
-                    >
+                    <motion.div className={` ${classes.description} leftPadding `}>
                         {dataArray[index].description}
                     </motion.div>
-                    {/* </AnimatePresence> */}
 
                     <Footer
                         classes={classes}

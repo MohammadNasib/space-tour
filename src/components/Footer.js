@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function Footer({ classes, pageName, distance, travel, role }) {
     return (
-        <motion.div layout className={`${classes.footer} globalFooter `}>
+        <motion.div  className={`${classes.footer} globalFooter `}>
             {pageName === 'destinations' && (
                 <>
                     <div className={`${classes.distance} leftPadding`}>
