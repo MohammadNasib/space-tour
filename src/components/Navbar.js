@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import '../styles/navbar.scss';
 import { NavLink } from 'react-router-dom';
+import { animate, motion } from 'framer-motion';
 
 export default function Navbar({ setBgName }) {
     const menuRef = useRef();
@@ -17,33 +18,33 @@ export default function Navbar({ setBgName }) {
         setBgName((preVal) => (preVal = name));
     }
 
-
     return (
         <>
             <div className='header'>
                 <span className='logo pointer'>
-                    <img src='assets/shared/logo.svg' alt='LOGO'  />
+                    <img src='assets/shared/logo.svg' alt='LOGO' />
                 </span>
-                
+
                 <span className='menuIcon pointer'>
-                    <img
+                    <motion.img
+                        whileHover={{ scale: 1.1 }}
                         src='assets/shared/icon-hamburger.svg'
                         alt='HAMBURGER'
                         onClick={openMenu}
-                    
                     />
                 </span>
 
                 <nav className='menu' ref={menuRef}>
-                    <ul>
-                        <div className='closeIcon pointer'>
-                            <img
-                                src='assets/shared/icon-close.svg'
-                                alt='CLOSE'
-                                onClick={closeMenu}
-                            />
-                        </div>
+                    <div className='closeIcon pointer'>
+                        <motion.img
+                            whileHover={{ scale: 1.1 }}
+                            src='assets/shared/icon-close.svg'
+                            alt='CLOSE'
+                            onClick={closeMenu}
+                        />
+                    </div>
 
+                    <ul>
                         <li>
                             <NavLink to='/' onClick={() => updateBgName('home')}>
                                 Home

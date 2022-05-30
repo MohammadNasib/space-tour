@@ -7,9 +7,7 @@ export default function Destination() {
     return (
         <>
             <Title title='SPACE LAUNCH 101' />
-
-            <Content dataName={'technology'} classes={classes}  />
-
+            <Content dataName={'technology'} classes={classes} />
         </>
     );
 }

@@ -7,8 +7,7 @@ export default function Crew() {
     return (
         <>
             <Title title='MEET YOUR CREW' />
-
             <Content dataName={'crew'} classes={classes} />
-        </>
+            </>
     );
 }
