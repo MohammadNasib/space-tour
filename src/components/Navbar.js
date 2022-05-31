@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import '../styles/navbar.scss';
 import { NavLink } from 'react-router-dom';
-import { animate, motion } from 'framer-motion';
+import {  motion } from 'framer-motion';
 
 export default function Navbar({ setBgName }) {
     const menuRef = useRef();

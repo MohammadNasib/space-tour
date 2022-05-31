@@ -10,26 +10,23 @@ import '../assets/home/background-home-mobile.jpg';
 import { AnimatePresence, motion } from 'framer-motion';
 
 export default function SpaceTourism() {
-    const pathName = window.location.pathname;
     const location = useLocation();
     // slice removes first character of a string
-    const [bgName, setBgName] = useState(pathName === '/' ? 'home' : pathName.slice(1));
+    const [bgName, setBgName] = useState(
+        location.pathname === '/' ? 'home' : location.pathname.slice(1)
+    );
     const [imgType, setImgType] = useState('mobile');
     const commonVarients = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
-            transition: { duration: 1.5 },
+            transition: { duration: 1 },
         },
-        exit: { x: '-100vw', transition: { ease: 'easeInOut', delay: 0.2, duration: 0.6 } },
+        exit: { x: '-100vw', transition: { ease: 'easeInOut', delay: 0.2, duration: 0.5 } },
     };
 
     useEffect(() => {
-        let screenSize = window.innerWidth;
-        screenSize < '640' && setImgType('mobile');
-        screenSize >= '640' && screenSize < '950' && setImgType('tablet');
-        screenSize >= '950' && setImgType('desktop');
-
+        cngImgType();
         window.addEventListener('resize', cngImgType);
     }, []);
 
@@ -49,7 +46,7 @@ export default function SpaceTourism() {
         <>
             <Navbar setBgName={setBgName} />
 
-            <AnimatePresence exitBeforeEnter initial={false}>
+            <AnimatePresence exitBeforeEnter >
                 <motion.div
                     className='container'
                     style={styles}
@@ -58,7 +55,6 @@ export default function SpaceTourism() {
                     initial='hidden'
                     animate='visible'
                     exit='exit'
-                    
                 >
                     <Routes location={location} key={location.pathname}>
                         <Route exact path='/' element={<Home />} />

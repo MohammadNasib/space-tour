@@ -13,15 +13,13 @@ export default function Content({ dataName, classes }) {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
-            transition: { duration: 1.5 },
+            transition: { duration: 1 },
         },
-        exit: { opacity: 0, transition: { ease: 'easeInOut', delay: 0.1, duration: 0.7 } },
+        exit: { opacity: 0, transition: { ease: 'easeInOut', delay: 0.1, duration: 0.4 } },
     };
 
     useEffect(() => {
-        let screenSize = window.innerWidth;
-        setImgType(screenSize >= '950' ? 'portrait' : 'landscape');
-
+        cngImgType();
         window.addEventListener('resize', cngImgType);
     }, []);
 
