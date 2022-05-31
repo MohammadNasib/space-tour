@@ -3,17 +3,18 @@
 .title {
     font-size: $mediumFont;
     font-weight: bold;
-    place-self: center;
+    width: 100%;
+    text-align: center;
 }
 
 @media (min-width: 640px) {
     .title {
         font-size: $mediumFont;
+        text-align: left;
     }
 }
 @media (min-width: 950px) {
     .title {
         font-size: calc(1.5vw + 1.4rem);
-        place-self: start;
     }
 }

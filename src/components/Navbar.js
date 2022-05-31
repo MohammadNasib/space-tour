@@ -5,7 +5,6 @@ import {  motion } from 'framer-motion';
 
 export default function Navbar({ setBgName }) {
     const menuRef = useRef();
-
     function openMenu() {
         menuRef.current.style.left = '0';
     }
