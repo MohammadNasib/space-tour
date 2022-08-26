@@ -1,15 +1,12 @@
-@import '../utilities/variables';
-
 .title {
-    font-size: $mediumFont;
+    font-size: var(--font1);
     font-weight: bold;
     width: 100%;
     text-align: center;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 662px) {
     .title {
-        font-size: $mediumFont;
         text-align: left;
     }
 }

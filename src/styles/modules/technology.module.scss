@@ -1,22 +1,10 @@
-@import '../../utilities/variables';
+.active {
+    background-color: white;
+    color: black;
+}
 
 .image img {
     max-width: 100%;
-}
-
-.name {
-    font-size: calc(3vw + 3rem);
-    font-weight: bolder;
-    margin-bottom: 0.3em;
-}
-
-.description {
-    font-size: $smallFont;
-    border-bottom: 1px solid hsla(0, 0%, 100%, 0.5);
-    max-width: 45ch;
-    margin: auto;
-    line-height: 1.6em;
-    border: none;
 }
 
 .subMenu {
@@ -25,7 +13,7 @@
     justify-content: space-evenly;
     margin-bottom: 1.5em;
     order: -2;
-    font-size: calc(2.5vw + 2.5rem);
+    font-size: var(--font1);
 
     span {
         width: 1.5em;
@@ -40,32 +28,43 @@
     }
 }
 
-.active {
-    background-color: white;
-    color: black;
+.name {
+    font-size: calc(var(--font1) + 1em);
+    font-weight: bolder;
+    margin-bottom: 0.3em;
+}
+
+.description {
+    font-size: var(--font3);
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.5);
+    max-width: 45ch;
+    margin: auto;
+    line-height: 1.6em;
+    border: none;
 }
 
 .footer {
+    font-size: var(--font2);
     justify-content: center;
-    font-size: calc(1.5vw + 1.3rem);
     order: -1;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 662px) {
     .name {
-        font-size: calc(2vw + 4rem);
+        font-size: calc(var(--font1) + 1.3em);
     }
 
     .description {
         max-width: 43ch;
     }
 }
+
 @media (min-width: 950px) {
     .image {
         order: 2;
     }
 
-    .info{
+    .info {
         grid-template-columns: 20% 75%;
     }
 
@@ -77,16 +76,17 @@
     }
 
     .name {
-        font-size: calc(2.5vw + 2.5rem);
+        font-size: calc(var(--font1) + 1em);
     }
 
     .description {
-        font-size: calc(1vw + 1rem);
+        font-size: var(--font4);
         max-width: 43ch;
         padding-left: 0 !important;
     }
 
     .footer {
+        font-size: var(--font3);
         justify-content: start;
     }
 }

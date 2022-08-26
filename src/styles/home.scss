@@ -1,18 +1,14 @@
-@import '../utilities/variables';
-
-
-
-.top {
-    font-size: $mediumFont;
+.topHeading {
+    font-size: var(--font2);
 }
-.middle {
+.middleHeading {
     margin: 0.3em 0;
-    font-size: $bigFont;
+    font-size: calc(var(--font1) + 6em);
     font-weight: bolder;
 }
-.bottom {
-    font-size: $smallFont;
-    max-width: 35ch;
+.para {
+    font-size: var(--font3);
+    max-width: 40ch;
     line-height: 1.5em;
     margin: auto;
 }
@@ -21,7 +17,7 @@ button {
     width: 6.5em;
     height: 6.5em;
     border-radius: 50%;
-    font-size: calc(1rem + 3vw);
+    font-size: var(--font1);
     border: none;
 }
 
@@ -29,21 +25,23 @@ button:hover {
     color: #202578;
 }
 
-// medium screens
-// @media (min-width: 640px) 
-
 // large screen
+@media (min-width: 662px) {
+    .middleHeading {
+        font-size: calc(var(--font1) + 8em);
+    }
+}
+
 @media (min-width: 950px) {
-
-    .top {
-        font-size: calc(2vw + 1.2rem);
+    .topHeading {
+        font-size: var(--font2);
     }
 
-    .bottom {
-        font-size: calc(1rem + 1vw);
+    .middleHeading {
+        font-size: calc(var(--font1) + 6em);
     }
 
-    button {
-        font-size: calc(2.7rem + 1vw);
+    .para {
+        font-size: var(--font3);
     }
 }

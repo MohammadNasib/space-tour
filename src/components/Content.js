@@ -1,4 +1,3 @@
-// import { motion } from 'framer-motion';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState, useEffect } from 'react';
 import json from '../utilities/data.json';
@@ -46,6 +45,7 @@ export default function Content({ dataName, classes }) {
             </div>
 
             <div className={`${classes.info} globalInfo txtAlign`}>
+            
                 <div className={` ${classes.subMenu}  leftPadding `}>
                     <SubMenu
                         dataArray={dataArray}
@@ -56,6 +56,7 @@ export default function Content({ dataName, classes }) {
                 </div>
 
                 <AnimatePresence exitBeforeEnter initial={false}>
+
                     <motion.div
                         className='details'
                         key={dataArray[index].name}
@@ -64,6 +65,7 @@ export default function Content({ dataName, classes }) {
                         animate='visible'
                         exit='exit'
                     >
+
                         <div className={classes.name}>{dataArray[index].name}</div>
 
                         <div className={` ${classes.description} leftPadding `}>

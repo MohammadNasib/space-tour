@@ -15,7 +15,7 @@ export default function SpaceTourism() {
     const [bgName, setBgName] = useState(
         location.pathname === '/' ? 'home' : location.pathname.slice(1)
     );
-    const [imgType, setImgType] = useState('mobile');
+    const [deviceType, setDeviceType] = useState('mobile');
     const commonVarients = {
         hidden: { opacity: 0 },
         visible: {
@@ -32,21 +32,26 @@ export default function SpaceTourism() {
 
     function cngImgType() {
         let screenSize = window.innerWidth;
-        screenSize < '640' && setImgType('mobile');
-        screenSize >= '640' && screenSize < '950' && setImgType('tablet');
-        screenSize >= '950' && setImgType('desktop');
+        screenSize < '640' && setDeviceType('mobile');
+        screenSize >= '640' && screenSize < '950' && setDeviceType('tablet');
+        screenSize >= '950' && setDeviceType('desktop');
+    }
+
+    function updateBgName(name) {
+        setBgName(name);
     }
 
     const styles = {
-        background: ` url('../../assets/${bgName}/background-${bgName}-${imgType}.jpg') 
+        //background image is named according to page name and device type. Example :
+        background: ` url('../../assets/${bgName}/background-${bgName}-${deviceType}.jpg') 
         center center / 100% 100% no-repeat `,
     };
 
     return (
-        <>
-            <Navbar setBgName={setBgName} />
+        <main>
+            <Navbar updateBgName={updateBgName} />
 
-            <AnimatePresence exitBeforeEnter >
+            <AnimatePresence exitBeforeEnter>
                 <motion.div
                     className='container'
                     style={styles}
@@ -57,7 +62,7 @@ export default function SpaceTourism() {
                     exit='exit'
                 >
                     <Routes location={location} key={location.pathname}>
-                        <Route exact path='/' element={<Home />} />
+                        <Route exact path='/' element={<Home updateBgName={updateBgName} />} />
 
                         <Route path='/destination' element={<Destination />} />
 
@@ -67,6 +72,6 @@ export default function SpaceTourism() {
                     </Routes>
                 </motion.div>
             </AnimatePresence>
-        </>
+        </main>
     );
 }

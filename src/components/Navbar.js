@@ -1,34 +1,26 @@
 import React, { useRef } from 'react';
 import '../styles/navbar.scss';
 import { NavLink } from 'react-router-dom';
-import {  motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
-export default function Navbar({ setBgName }) {
+export default function Navbar({ updateBgName }) {
     const menuRef = useRef();
     function openMenu() {
-        menuRef.current.style.left = '0';
-    }
-
-    function closeMenu() {
-        menuRef.current.style.left = '-80%';
-    }
-
-    function updateBgName(name) {
-        setBgName((preVal) => (preVal = name));
+        menuRef.current.classList.toggle('openMenu');
     }
 
     return (
         <>
             <div className='header'>
-                <span className='logo pointer'>
+                <NavLink to='/' onClick={() => updateBgName('home')} className='logo pointer'>
                     <img src='assets/shared/logo.svg' alt='LOGO' />
-                </span>
+                </NavLink>
 
                 <span className='menuIcon pointer'>
                     <motion.img
                         whileHover={{ scale: 1.1 }}
                         src='assets/shared/icon-hamburger.svg'
-                        alt='HAMBURGER'
+                        alt='Menu'
                         onClick={openMenu}
                     />
                 </span>
@@ -39,7 +31,7 @@ export default function Navbar({ setBgName }) {
                             whileHover={{ scale: 1.1 }}
                             src='assets/shared/icon-close.svg'
                             alt='CLOSE'
-                            onClick={closeMenu}
+                            onClick={openMenu}
                         />
                     </div>
 

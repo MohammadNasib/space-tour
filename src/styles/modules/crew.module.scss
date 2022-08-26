@@ -1,28 +1,9 @@
-@import '../../utilities/variables';
+.active {
+    background-color: white !important;
+}
 
 .image img {
     max-width: 90%;
-}
-
-.footer {
-    font-size: calc(1.7vw + 1.7rem);
-    justify-content: center;
-    order: -1;
-}
-
-.name {
-    font-size: calc(3vw + 3rem);
-    font-weight: bolder;
-}
-
-.description {
-    font-size: $smallFont;
-    border-bottom: 1px solid hsla(0, 0%, 100%, 0.5);
-    padding: 1.5em 0;
-    max-width: 45ch;
-    margin: auto;
-    line-height: 1.6em;
-    border: none;
 }
 
 .subMenu {
@@ -46,41 +27,54 @@
     }
 }
 
-.active {
-    background-color: white !important;
+.name {
+    font-size: calc(var(--font1) + 0.7em);
+    font-weight: bolder;
 }
 
-@media (min-width: 640px) {
+.description {
+    font-size: var(--font3);
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.5);
+    padding: 0.5em 0;
+    max-width: 45ch;
+    margin: auto;
+    line-height: 1.6em;
+    border: none;
+}
+
+.footer {
+    font-size: var(--font2);
+    justify-content: center;
+    order: -1;
+}
+
+@media (min-width: 662px) {
     .name {
-        font-size: calc(2vw + 4rem);
+        font-size: calc(var(--font1) + 1.7em);
     }
 
     .description {
         max-width: 43ch;
     }
 }
+
 @media (min-width: 950px) {
     .image {
         order: 2;
     }
 
-    .name {
-        font-size: calc(2.5vw + 2.5rem);
+    .subMenu {
+        order: 1;
+        padding-left: 0 !important;
     }
 
     .description {
-        font-size: calc(1.3vw + 1rem);
         max-width: 36ch;
         padding-left: 0 !important;
     }
 
     .info {
         text-align: left;
-    }
-
-    .subMenu {
-        order: 1;
-        padding-left: 0 !important;
     }
 
     .footer {
